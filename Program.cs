@@ -4,6 +4,23 @@ using Proiect.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminPolicy", policy => policy.RequireRole("Admin"));
+});
+
+builder.Services.AddRazorPages(options =>
+{
+    options.Conventions.AuthorizeFolder("/Doctors", "AdminPolicy");
+    options.Conventions.AllowAnonymousToPage("/Doctors/Index");    
+    options.Conventions.AuthorizeFolder("/Owners");
+    options.Conventions.AuthorizeFolder("/Pets");
+    options.Conventions.AuthorizeFolder("/Appointments");
+    options.Conventions.AuthorizeFolder("/Invoices", "AdminPolicy");
+    options.Conventions.AllowAnonymousToPage("/Invoices/Index");
+    options.Conventions.AuthorizeFolder("/Treatments");
+});
+
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -11,6 +28,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 

@@ -4,7 +4,21 @@
     ViewData["Title"] = "Home page";
 }
 
+@if (Model.UserRoles != null && Model.UserRoles.Count > 0)
+{
+    <p>Your Roles:</p>
+    <ul>
+        @foreach (var role in Model.UserRoles)
+        {
+            <li>@role</li>
+        }
+    </ul>
+}
+else
+{
+    <p>You are not assigned to any roles.</p>
+}
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>You can see the doctors and their areas of expertise, to book an appointment, please create an account</p>
 </div>
