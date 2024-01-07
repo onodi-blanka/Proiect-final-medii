@@ -1,0 +1,37 @@
+﻿@page
+@model Proiect.Pages.Treatments.IndexModel
+
+<h2>Treatments</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Diagnosis</th>
+            <th>Prescription</th>
+            <th>Notes</th>
+            <th>Appointment</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var treatment in Model.Treatments)
+        {
+            <tr>
+                <td>@treatment.ID</td>
+                <td>@treatment.Diagnosis</td>
+                <td>@treatment.Prescription</td>
+                <td>@treatment.Notes</td>
+                <td>Appointment @treatment.AppointmentID</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@treatment.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@treatment.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@treatment.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="./Create">Create New Treatment</a>
+

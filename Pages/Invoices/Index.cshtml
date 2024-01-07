@@ -1,0 +1,32 @@
+﻿@page
+@model Proiect.Pages.Invoices.IndexModel
+
+<h2>Invoices</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Total Amount</th>
+            <th>Appointment</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var invoice in Model.Invoices)
+        {
+            <tr>
+                <td>@invoice.ID</td>
+                <td>@invoice.TotalAmount</td>
+                <td>Appointment @invoice.AppointmentID</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@invoice.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@invoice.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@invoice.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="./Create">Create New Invoice</a>

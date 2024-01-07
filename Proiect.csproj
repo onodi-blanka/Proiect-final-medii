@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-Proiect-251fd5c3-a3f5-4e7d-8f02-d6c144ae1295</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Appointments\Create.cshtml" />
+    <None Include="Pages\Appointments\Delete.cshtml" />
+    <None Include="Pages\Appointments\Details.cshtml" />
+    <None Include="Pages\Appointments\Edit.cshtml" />
+    <None Include="Pages\Appointments\Index.cshtml" />
+    <None Include="Pages\Invoices\Create.cshtml" />
+    <None Include="Pages\Invoices\Delete.cshtml" />
+    <None Include="Pages\Invoices\Details.cshtml" />
+    <None Include="Pages\Invoices\Edit.cshtml" />
+    <None Include="Pages\Invoices\Index.cshtml" />
+    <None Include="Pages\Owners\Create.cshtml" />
+    <None Include="Pages\Owners\Delete.cshtml" />
+    <None Include="Pages\Owners\Details.cshtml" />
+    <None Include="Pages\Owners\Edit.cshtml" />
+    <None Include="Pages\Owners\Index.cshtml" />
+    <None Include="Pages\Pets\Create.cshtml" />
+    <None Include="Pages\Pets\Delete.cshtml" />
+    <None Include="Pages\Pets\Details.cshtml" />
+    <None Include="Pages\Pets\Edit.cshtml" />
+    <None Include="Pages\Pets\Index.cshtml" />
+    <None Include="Pages\Treatments\Create.cshtml" />
+    <None Include="Pages\Treatments\Delete.cshtml" />
+    <None Include="Pages\Treatments\Details.cshtml" />
+    <None Include="Pages\Treatments\Edit.cshtml" />
+    <None Include="Pages\Treatments\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.23">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+</Project>

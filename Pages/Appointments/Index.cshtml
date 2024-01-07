@@ -1,0 +1,36 @@
+﻿@page
+@model Proiect.Pages.Appointments.IndexModel
+
+<h2>Appointments</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date Time</th>
+            <th>Reason Of Visit</th>
+            <th>Pet Name</th>
+            <th>Doctor Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model.Appointments)
+        {
+            <tr>
+                <td>@appointment.ID</td>
+                <td>@appointment.DateTime.ToString("g")</td>
+                <td>@appointment.ReasonOfVisit</td>
+                <td>@appointment.Pet.Name</td>
+                <td>@appointment.Doctor?.FirstName @appointment.Doctor?.LastName</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@appointment.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@appointment.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@appointment.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="./Create">Create New Appointment</a>

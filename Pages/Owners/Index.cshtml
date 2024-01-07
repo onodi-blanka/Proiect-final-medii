@@ -1,0 +1,32 @@
+﻿@page
+@model Proiect.Pages.Owners.IndexModel
+
+<h2>Owners</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Owners)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="./Create">Create New</a>

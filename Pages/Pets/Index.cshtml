@@ -1,0 +1,40 @@
+﻿@page
+@model Proiect.Pages.Pets.IndexModel
+
+<h2>Pets</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Species</th>
+            <th>Breed</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Owner</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pet in Model.Pets)
+        {
+            <tr>
+                <td>@pet.ID</td>
+                <td>@pet.Name</td>
+                <td>@pet.Species</td>
+                <td>@pet.Breed</td>
+                <td>@pet.DateOfBirth.ToShortDateString()</td>
+                <td>@pet.Gender</td>
+                <td>@pet.Owner?.FirstName @pet.Owner?.LastName</td> 
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@pet.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@pet.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@pet.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="./Create">Create New</a>

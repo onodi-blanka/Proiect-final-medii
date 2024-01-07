@@ -1,0 +1,23 @@
+﻿@page
+@model Proiect.Pages.Invoices.CreateModel
+
+<h2>Create New Invoice</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Invoice.TotalAmount" class="control-label"></label>
+        <input asp-for="Invoice.TotalAmount" class="form-control" />
+        <span asp-validation-for="Invoice.TotalAmount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Invoice.AppointmentID" class="control-label"></label>
+        <select asp-for="Invoice.AppointmentID" class="form-control" asp-items="Model.Appointments">
+            <option value="">-- Select Appointment --</option>
+        </select>
+        <span asp-validation-for="Invoice.AppointmentID" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Create" class="btn btn-primary" />
+</form>
+
+<a asp-page="./Index">Back to List</a>
+
